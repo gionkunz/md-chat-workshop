@@ -88,6 +88,9 @@ to build a package ready for distribution.
 underlying front-end stack is using grunt-watch which is heavily relying on open file handles.
 `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 
+### Navigating the code
+There are already some branches prefixed with `step-` which represents a state of the workshop. Users with git experience can check them out directly. Otherwise there is the `step.sh` script available which can be used with a number (ex. `./step.sh 1`) and it will try to apply all your changes to the step you are about to checkout (in our example `step-1`).
+
 ### Distribution build
 
 If you want to produce a distribution ready release of your code there will be a few tasks that should run before. This
