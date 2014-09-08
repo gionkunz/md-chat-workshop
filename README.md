@@ -32,6 +32,7 @@ workshop. All tools that you need are already pre-installed and you don't need t
 2. Download [the VM Zip file](http://images.workshoptage.ch/images/ws5/ws-5.zip) from the /ch/open server and extract into a folder on your machine (The VM is totally around 7 GB)
 3. Import the VM into VMWare Player by opening the .vmx file
 4. Start the VM to make sure everything is okay
+5. If you'd like to log in to the system and pre-install some software you'd like to use, please use the password "dev". Please don't update existing software or modify core components, as we would like to guarantee a smooth workshop experience.
 
 Now you're set and prepared for the workshop. If you've installed the VM there are no more steps to follow.
 
