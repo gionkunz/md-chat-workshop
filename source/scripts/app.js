@@ -3,7 +3,7 @@
 
   // Our main application module
   angular.module('chatApp', ['firebase'])
-
+    // Store firebase base URL in constant
     .constant('chatDbUrl', 'https://oddeven-mdchat.firebaseio.com/')
 
     .factory('chatService', function ($firebase, $rootScope, chatDbUrl) {
