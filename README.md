@@ -21,18 +21,20 @@ In general all you need to be prepared for this project and the workshop are 3 t
 - Text editor of your choice
 
 You can Install these three software components on any operating system without bigger issues. We recommend however, to 
-use the pre-installed VM that is provided for the /ch/open workshop.
+use the pre-installed VM that is provided for the workshop.
 
-## Using a VM prepared for the workshop at /ch/open 
+## Using a VM prepared for the workshop
 
-In the context of the /ch/open workshop we have prepared a VM (VMWare player image) for you that you can use for the 
-workshop. All tools that you need are already pre-installed and you don't need to follow any further steps down in the 
+In the context of the workshop we have prepared a VM (VMWare player image) for you that you can use for the 
+workshop. All tools that you need are already pre-installed and you don't need to follow any further steps down in the installation guide.
 
-1. First you need to download [VMWare Player](https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/6_0):
-2. Download [the VM Zip file](http://images.workshoptage.ch/images/ws5/ws-5.zip) from the /ch/open server and extract into a folder on your machine (The VM is totally around 7 GB)
+The VM comes with Ubuntu 14.10 and is pre-configured with GIT, Node.js, Grunt, Bower, Terminator, WebStorm 10, Sublime Text 2, Zeal (with JS, AngularJS, HTML5 and other usefull offline documentation packages) and other useful tools.
+
+1. First you need to download [VMWare Player](https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/7_0):
+2. Download [the VM Zip file](https://drive.google.com/folderview?id=0B4dgZXgHe8DifjgzeEh5ZXRIdm5RRnhCOXh4QTk1bzNEbWtTLTJmVmF3d3pETkgtX3lHRGs&usp=sharing) and extract into a folder on your machine (The VM is around 9 GB in total)
 3. Import the VM into VMWare Player by opening the .vmx file
 4. Start the VM to make sure everything is okay
-5. If you'd like to log in to the system and pre-install some software you'd like to use, please use the password "dev". Please don't update existing software or modify core components, as we would like to guarantee a smooth workshop experience.
+5. If you'd like to log in to the system and pre-install some software you'd like to use, please use the password "angular". Please don't update existing software or modify core components, as we would like to guarantee a smooth workshop experience.
 
 Now you're set and prepared for the workshop. If you've installed the VM there are no more steps to follow.
 
@@ -42,27 +44,21 @@ Now you're set and prepared for the workshop. If you've installed the VM there a
 On Linux (Ubuntu, Fedora, OS X etc.) I recommend you to use NVM (node version manager) to install node. This allows you
 to later on switch the node version individually if you need to.
 
-With `curl`
+Follow the installation steps provided here [on the NVM github page](https://github.com/creationix/nvm#install-script).
 
-    curl https://raw.github.com/creationix/nvm/v0.4.0/install.sh | sh
-
-With `wget`
-
-    wget -qO- https://raw.github.com/creationix/nvm/v0.4.0/install.sh | sh
-
-After installing NVM you need to start a new terminal or `source ~/.nvm/nvm.sh`
+After installing NVM you need to re-start your terminal or `source ~/.nvm/nvm.sh`
 
 Now, you can install any version of Node by using nvm:
 
     nvm install 0.10
 
-Or switch to an already installed version so it will be set as your system wide version:
+Also make sure to set a system wide node by aliasing the installed version as default:
 
-    nvm use 0.9
+    nvm alias default 0.10
 
 For more options visit https://github.com/creationix/nvm
 
-## Installation of the MD Chat
+## Installation of the MD Chat workshop repository
 
 First you need to install bower and grunt global:
 
@@ -71,14 +67,6 @@ First you need to install bower and grunt global:
 Then you can use the setup script:
 
     curl -L http://goo.gl/KOd2DZ | sh
-
-Or you can clone the repository and install the MD Chat manually the following steps:
-
-    git clone https://github.com/gionkunz/md-chat-workshop.git
-    cd md-chat
-    sudo npm install -g bower grunt-cli
-    npm install
-    bower install
 
 ## Usage
 
@@ -90,7 +78,9 @@ underlying front-end stack is using grunt-watch which is heavily relying on open
 `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 
 ### Navigating the code
-There are already some branches prefixed with `step-` which represents a state of the workshop. Users with git experience can check them out directly. Otherwise there is the `step.sh` script available which can be used with a number (ex. `./step.sh 1`) and it will try to apply all your changes to the step you are about to checkout (in our example `step-1`).
+There are already some branches prefixed with `step-` which represents a state of the workshop. Users with git experience can check them out directly. Otherwise there is the `step.sh` script available which can be used with a number (ex. `./step.sh 1`) and switch to a working branch named workshop where all future step calls will be rebased on.
+
+If you are sure that you can handle possible merge conflicts during rebasing you can also use the `-save` option to go one step further (ex. `./step.sh 2 -save`). This will try to keep your modifications and add them to a commit before the next step will be rebased into your working branch.
 
 ### Distribution build
 
