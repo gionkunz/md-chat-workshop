@@ -139,9 +139,6 @@ module.exports = function (grunt) {
         imagePath: '<%= pkg.config.source %>/images'
       },
       dist: {
-        options: {
-          sourceComments: 'none'
-        },
         files: [
           {
             expand: true,
@@ -153,9 +150,6 @@ module.exports = function (grunt) {
         ]
       },
       server: {
-        options: {
-          sourceMap: true
-        },
         files: [
           {
             expand: true,
